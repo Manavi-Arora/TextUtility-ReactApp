@@ -18,5 +18,5 @@ export default function TextForm(props) {
   </div>
   <button type="submit" className="btn btn-primary">{props.submit}</button>
 </form>
-  )
+  );
 }

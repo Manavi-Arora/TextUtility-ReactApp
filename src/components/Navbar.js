@@ -1,10 +1,10 @@
 import React from 'react'
+//import About from './About';
 import PropTypes from 'prop-types'
-
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
     <div className="container-fluid">
       <a className="navbar-brand" href="/">{props.title}</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,6 +18,9 @@ export default function Navbar(props) {
           <li className="nav-item">
             <a className="nav-link" href="/">{props.contact}</a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="</About>">{props.about}</a>
+          </li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
@@ -25,7 +28,6 @@ export default function Navbar(props) {
             <ul className="dropdown-menu">
               <li><a className="dropdown-item" href="/">1</a></li>
               <li><a className="dropdown-item" href="/">2</a></li>
-              <li><hr className="dropdown-divider"/></li>
               <li><a className="dropdown-item" href="/">3</a></li>
             </ul>
           </li>
@@ -34,6 +36,11 @@ export default function Navbar(props) {
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
           <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
+        <div className={`form-check form-switch mx-3 text-${props.mode === 'dark'?'light':'dark'}`} onClick={props.toggle}>
+          <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{`${props.mode === 'dark'?'light':'dark'} Mode`}</label>
+        </div>
+
       </div>
     </div>
   </nav>
@@ -46,11 +53,12 @@ export default function Navbar(props) {
 Navbar.propTypes = {
     title: PropTypes.string.isRequired,       /* Required field i.e need to be either passed or either set by default props otherwise error occurs */
     home: PropTypes.string,
-    contact: PropTypes.string}
+    contact: PropTypes.string
+}
 
 /* If props are not send in App.js default props are to be set */
 Navbar.defaultProps = {
-    title: 'My App',
+    title: 'My Title',
     home : 'My home',
     contact: 'Contact Us'
 }
