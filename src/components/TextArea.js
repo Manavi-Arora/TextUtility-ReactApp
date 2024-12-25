@@ -18,26 +18,27 @@ export default function TextArea(props) {
   const RemoveExtraSpaces = () => {
     // Split the string by spaces, filter out empty strings, and join back with a single space
     setText(text.split(/\s+/).filter((e)=>e.length !== 0).join(' ').trim());
+    props.showalert("success","Extra spaces removed successfully!")
   };
   
   const HandleUpClick = () =>{
     //console.log("Button clicked");
     setText(text.toUpperCase());
-    props.showalert("success","Text sucessfully changes to Uppercase")
+    props.showalert("success","Text sucessfully changes to Uppercase!")
   }
 
   const HandleLoClick = () =>{
     setText(text.toLowerCase());
-    props.showalert("success","Text sucessfully changes to Lowercase")
+    props.showalert("success","Text sucessfully changes to Lowercase!")
   }
   const copyToClipboard = () => {
     navigator.clipboard.writeText(text); 
-    props.showalert("success","Text sucessfully copied to clipboard")
+    props.showalert("success","Text sucessfully copied to clipboard!")
   };
 
   const HandleClrClick = () =>{
     setText("");
-    props.showalert("success","Text sucessfully cleared")
+    props.showalert("success","Text sucessfully cleared!")
   }
   const [text, setText] = useState("")
  // setText("New text");
@@ -60,9 +61,9 @@ export default function TextArea(props) {
         <button className="btn btn-primary my-2"disabled={text.length === 0}  onClick={copyToClipboard}>Copy the text</button>  
         <button className="btn btn-primary my-2 mx-2" disabled={text.length === 0} onClick={RemoveExtraSpaces}>Remove Extra Spaces</button>  
         <div className="container">
-          <h2>Text Analysis</h2>
-          <p><b>Words: </b>{text.split(/\s+/).filter((e)=>{return e.length !==0}).length} <b>Characters with spaces: </b>{text.length} <b>Characters without spaces: </b>{withoutSpace(text)}  <b>Read In : </b>{0.008 * text.split(/\s+/).filter((e)=>{return e.length !==0}).length} minutes</p>
-          <h2>Text Preview</h2>
+          <h3>Text Analysis</h3>
+          <p><b>Words: </b>{text.split(/\s+/).filter((e)=>{return e.length !==0}).length} <b>Characters with spaces: </b>{text.length} <b>Characters without spaces: </b>{withoutSpace(text)}  <b>Read In : </b>{(0.008 * text.split(/\s+/).filter((e)=>{return e.length !==0}).length).toFixed(4)} minutes</p>
+          <h3>Text Preview</h3>
           <p>{text.length > 0 ?text:"Enter text to preview"}</p>
         </div>
       </div>

@@ -17,7 +17,7 @@ function App() {
     });
     setTimeout(() => {
       setalert(null);
-    }, 2000);
+    }, 3000);
   };
 
   const toggleMode = () => {
@@ -25,12 +25,12 @@ function App() {
       setmode("dark");
       document.body.style.backgroundColor = "#060648";
       showalert("success", "Dark mode has been enabled");
-      document.title = "TextUtiles - Light";
+      //document.title = "TextUtiles - Light";
     } else {
       setmode("light");
       document.body.style.backgroundColor = " white";
       showalert("success", "Light mode has been enabled");
-      document.title = "TextUtiles - Dark";
+      //document.title = "TextUtiles - Dark";
     }
   };
 
@@ -49,7 +49,7 @@ function App() {
         <div className="container">
           <Routes>
             {/* Correct usage of element prop in Route */}
-            <Route path="/about" element={<About/>} />
+            <Route path="/about" element={<About mode ={mode}/>} />
             <Route
               path="/"
               element={<TextArea heading="Enter the text to analyze" mode={mode} showalert={showalert} />}
