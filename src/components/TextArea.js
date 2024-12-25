@@ -54,11 +54,11 @@ export default function TextArea(props) {
           rows="8"
           columns = "5"
         ></textarea>
-        <button className="btn btn-primary my-2 mx-2" onClick={HandleUpClick}>Capitalize the text</button>  
-        <button className="btn btn-primary my-2 " onClick={HandleLoClick}>Cursive the text</button>  
-        <button className="btn btn-primary my-2 mx-2" onClick={HandleClrClick}>Clear the text</button>  
-        <button className="btn btn-primary my-2" onClick={copyToClipboard}>Copy the text</button>  
-        <button className="btn btn-primary my-2 mx-2" onClick={RemoveExtraSpaces}>Remove Extra Spaces</button>  
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length === 0} onClick={HandleUpClick}>Capitalize the text</button>  
+        <button className="btn btn-primary my-2 " disabled={text.length === 0} onClick={HandleLoClick}>Cursive the text</button>  
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length === 0} onClick={HandleClrClick}>Clear the text</button>  
+        <button className="btn btn-primary my-2"disabled={text.length === 0}  onClick={copyToClipboard}>Copy the text</button>  
+        <button className="btn btn-primary my-2 mx-2" disabled={text.length === 0} onClick={RemoveExtraSpaces}>Remove Extra Spaces</button>  
         <div className="container">
           <h2>Text Analysis</h2>
           <p><b>Words: </b>{text.split(/\s+/).filter((e)=>{return e.length !==0}).length} <b>Characters with spaces: </b>{text.length} <b>Characters without spaces: </b>{withoutSpace(text)}  <b>Read In : </b>{0.008 * text.split(/\s+/).filter((e)=>{return e.length !==0}).length} minutes</p>
