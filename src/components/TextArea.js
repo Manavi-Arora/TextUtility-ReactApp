@@ -5,7 +5,7 @@ export default function TextArea(props) {
     return str.split(/\s+/).join('').length;
   }
   const HandleOnchange = (event) =>{
-    console.log("on change clicked");
+    //console.log("on change clicked");
     setText(event.target.value)
   }
 

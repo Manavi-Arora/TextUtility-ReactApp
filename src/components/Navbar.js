@@ -1,6 +1,6 @@
 import React from 'react'
 //import About from './About';
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
@@ -56,16 +56,16 @@ export default function Navbar(props) {
 }
 
 
-/* Proptypes */
-Navbar.propTypes = {
-    title: PropTypes.string.isRequired,       /* Required field i.e need to be either passed or either set by default props otherwise error occurs */
-    home: PropTypes.string,
-    contact: PropTypes.string
-}
+// /* Proptypes */
+// Navbar.propTypes = {
+//     title: PropTypes.string.isRequired,       /* Required field i.e need to be either passed or either set by default props otherwise error occurs */
+//     home: PropTypes.string,
+//     contact: PropTypes.string
+// }
 
-/* If props are not send in App.js default props are to be set */
-Navbar.defaultProps = {
-    title: 'My Title',
-    home : 'My home',
-    contact: 'Contact Us'
-}
+// /* If props are not send in App.js default props are to be set */
+// Navbar.defaultProps = {
+//     title: 'My Title',
+//     home : 'My home',
+//     contact: 'Contact Us'
+// }
